@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Delete Your RAVA Account and Data</title>
+    <meta name="description" content="Request deletion of your RAVA account and associated data." />
+    <style>
+      :root{
+        --bg: #F7F5F3;
+        --card: #FFFFFF;
+        --text: #1F1F1F;
+        --muted: #6B6B6B;
+        --border: rgba(0,0,0,.08);
+        --shadow: 0 10px 30px rgba(0,0,0,.06);
+        --brand: #C2185B;
+        --brand2: #BA5473;
+        --link: #C2185B;
+        --success: #1B7F5A;
+        --warn: #8A4B12;
+        --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+        --radius: 18px;
+      }
+      *{ box-sizing:border-box; }
+      body{
+        margin:0;
+        font-family: var(--sans);
+        color: var(--text);
+        background:
+          radial-gradient(1200px 600px at 20% 0%, rgba(194,24,91,.10), transparent 60%),
+          radial-gradient(900px 500px at 90% 20%, rgba(186,84,115,.10), transparent 55%),
+          linear-gradient(180deg, var(--bg), #FFFFFF 55%);
+        min-height:100vh;
+      }
+      a{ color: var(--link); text-decoration: none; }
+      a:hover{ text-decoration: underline; }
+      .wrap{
+        max-width: 920px;
+        margin: 0 auto;
+        padding: 32px 18px 60px;
+      }
+      .topbar{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap: 14px;
+        margin-bottom: 18px;
+      }
+      .brand{
+        display:flex;
+        align-items:center;
+        gap: 10px;
+        font-weight: 750;
+        letter-spacing:.2px;
+      }
+      .logo{
+        width: 34px;
+        height: 34px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--brand), var(--brand2));
+        box-shadow: 0 10px 24px rgba(194,24,91,.18);
+      }
+      .pill{
+        display:inline-flex;
+        align-items:center;
+        gap:8px;
+        padding: 8px 12px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: rgba(255,255,255,.7);
+        backdrop-filter: blur(8px);
+        font-size: 13px;
+        color: var(--muted);
+        white-space:nowrap;
+      }
+      .card{
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 26px;
+      }
+      h1{
+        margin: 8px 0 6px;
+        font-size: 34px;
+        line-height: 1.15;
+        letter-spacing: -.5px;
+      }
+      .subtitle{
+        margin: 0 0 18px;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.5;
+        max-width: 70ch;
+      }
+      .grid{
+        display:grid;
+        grid-template-columns: 1.1fr .9fr;
+        gap: 18px;
+        margin-top: 18px;
+      }
+      @media (max-width: 860px){
+        .grid{ grid-template-columns: 1fr; }
+      }
+      h2{
+        margin: 0 0 10px;
+        font-size: 18px;
+        letter-spacing: -.2px;
+      }
+      p{ margin: 0 0 12px; line-height: 1.6; }
+      ul,ol{ margin: 0 0 12px 18px; padding:0; line-height:1.7; }
+      li{ margin: 6px 0; }
+      .callout{
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 14px 14px 12px;
+        background: rgba(247,245,243,.55);
+      }
+      .callout strong{ color: var(--text); }
+      .kbd{
+        font-family: var(--mono);
+        font-size: 12.5px;
+        padding: 2px 8px;
+        border: 1px solid var(--border);
+        border-bottom-width: 2px;
+        border-radius: 10px;
+        background: rgba(255,255,255,.85);
+      }
+      .cta{
+        display:flex;
+        flex-wrap:wrap;
+        gap: 10px;
+        margin-top: 12px;
+      }
+      .btn{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        gap: 10px;
+        padding: 11px 14px;
+        border-radius: 14px;
+        border: 1px solid var(--border);
+        background: #fff;
+        color: var(--text);
+        box-shadow: 0 10px 24px rgba(0,0,0,.05);
+        font-weight: 650;
+        font-size: 14px;
+      }
+      .btn.primary{
+        border-color: rgba(194,24,91,.25);
+        background: linear-gradient(135deg, rgba(194,24,91,.10), rgba(186,84,115,.10));
+        color: #3A0A1C;
+      }
+      .btn:hover{ transform: translateY(-1px); transition: transform .12s ease; text-decoration:none; }
+      .muted{ color: var(--muted); font-size: 14px; }
+      .badge{
+        display:inline-flex;
+        align-items:center;
+        gap:8px;
+        padding: 8px 10px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,.8);
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .dot{
+        width: 9px; height: 9px; border-radius: 99px;
+        background: var(--success);
+        box-shadow: 0 0 0 3px rgba(27,127,90,.12);
+      }
+      .footer{
+        margin-top: 18px;
+        padding-top: 14px;
+        border-top: 1px solid var(--border);
+        display:flex;
+        flex-wrap:wrap;
+        gap: 12px 18px;
+        align-items:center;
+        justify-content:space-between;
+      }
+      .small{ font-size: 12.5px; color: var(--muted); }
+      .hr{ height:1px; background: var(--border); margin: 16px 0; }
+      .note{
+        border-left: 4px solid rgba(194,24,91,.55);
+        padding: 10px 12px;
+        background: rgba(194,24,91,.06);
+        border-radius: 12px;
+        color: #3A0A1C;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <div class="topbar">
+        <div class="brand" aria-label="RAVA">
+          <div class="logo" aria-hidden="true"></div>
+          <div>RAVA</div>
+        </div>
+        <div class="pill" title="This page can be used for Google Play listing requirements">
+          <span aria-hidden="true">🔒</span>
+          Account deletion information
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="badge"><span class="dot" aria-hidden="true"></span> RAVA – Women Community</div>
+
+        <h1>Delete Your RAVA Account and Data</h1>
+        <p class="subtitle">
+          We respect your privacy and your right to control your personal data. Below are the options you can use to delete your RAVA account and associated data.
+        </p>
+
+        <div class="grid">
+          <section>
+            <h2>Option 1: Delete your account from the Profile page</h2>
+            <div class="callout">
+              <p>
+                You can request account deletion directly from your Profile page inside the app.
+              </p>
+              <ol>
+                <li>Open <strong>Profile</strong></li>
+                <li>Tap <strong>Delete account</strong></li>
+                <li>Confirm the deletion request</li>
+              </ol>
+              <p class="muted">
+                Profile page reference: <a href="https://rava-community.com/Profile">https://rava-community.com/Profile</a>
+              </p>
+            </div>
+
+            <div class="hr"></div>
+
+            <h2>Option 2: Request deletion by email</h2>
+            <p>If you cannot access the app, you can request deletion by email:</p>
+            <ol>
+              <li>
+                Send an email to <strong><a href="mailto:support@rava-community.com">support@rava-community.com</a></strong>
+              </li>
+              <li>
+                Use the subject line: <span class="kbd">Delete My Account</span>
+              </li>
+              <li>
+                Include the email address associated with your RAVA account
+              </li>
+            </ol>
+
+            <div class="note">
+              For security, we may ask you to verify ownership of the account before processing the request.
+            </div>
+
+            <div class="cta">
+              <a class="btn primary" href="mailto:support@rava-community.com?subject=Delete%20My%20Account">
+                📩 Email support
+              </a>
+              <a class="btn" href="https://rava-community.com/Profile">
+                👤 Open Profile
+              </a>
+            </div>
+          </section>
+
+          <aside>
+            <h2>What data will be deleted</h2>
+            <p>Upon account deletion, we will permanently delete:</p>
+            <ul>
+              <li>Your user profile</li>
+              <li>Your email address</li>
+              <li>Your name and profile information</li>
+              <li>Your messages and chat history</li>
+              <li>Your uploaded photos, if any</li>
+            </ul>
+
+            <div class="hr"></div>
+
+            <h2>Data retention</h2>
+            <p>
+              Some minimal technical data may be retained for up to <strong>30 days</strong> for:
+            </p>
+            <ul>
+              <li>Security</li>
+              <li>Fraud prevention</li>
+              <li>Legal or compliance obligations</li>
+            </ul>
+            <p class="muted">After this period, all remaining data will be permanently removed.</p>
+
+            <div class="hr"></div>
+
+            <h2>Processing time</h2>
+            <p>Account deletion requests are processed within <strong>7 business days</strong>.</p>
+
+            <div class="hr"></div>
+
+            <h2>Contact</h2>
+            <p>
+              Questions? Contact us at
+              <strong><a href="mailto:support@rava-community.com">support@rava-community.com</a></strong>.
+            </p>
+          </aside>
+        </div>
+
+        <div class="footer">
+          <div class="small">Last updated: <span id="lastUpdated"></span></div>
+          <div class="small">
+            Related: <a href="https://rava-community.com/support">Support</a>
+            <span aria-hidden="true">•</span>
+            <a href="https://rava-community.com/privacy">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Simple non-invasive last-updated stamp
+      (function () {
+        const d = new Date();
+        const fmt = d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "2-digit" });
+        document.getElementById("lastUpdated").textContent = fmt;
+      })();
+    </script>
+  </body>
+</html>
