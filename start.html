@@ -159,39 +159,6 @@
       .bullets{ max-width: 100%; }
       .btn{ max-width: 100%; }
     }
-    /* Loader overlay */
-.loaderOverlay{
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(1200px 700px at 50% 20%, #ffffff 0%, var(--bg) 55%, #efe9ee 100%);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-.loaderBox{
-  text-align: center;
-  animation: fadeIn 0.2s ease-out;
-}
-
-.loaderBox img{
-  width: 92px;
-  height: 92px;
-  border-radius: 22px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-  margin-bottom: 14px;
-}
-
-.loaderText{
-  font-size: 14px;
-  color: var(--muted);
-}
-
-@keyframes fadeIn{
-  from{ opacity: 0; }
-  to{ opacity: 1; }
-}
   </style>
 </head>
 
@@ -231,7 +198,7 @@
 
           <div class="actions">
             <!-- If this page is on a subdomain (recommended), point to your real app login explicitly -->
-           <button class="btn btnPrimary" id="continueBtn" type="button">Continue</button> 
+            <a class="btn btnPrimary" href="https://rava-community.com/login?from_url=https%3A%2F%2Frava-community.com%2F">Continue</a>
           </div>
 
           <div class="hint">If it takes a moment, keep this page open while RAVA loads.</div>
@@ -240,39 +207,5 @@
       </div>
     </section>
   </main>
-  <div class="loaderOverlay" id="loader">
-  <div class="loaderBox">
-    <img src="rava-logo.png" alt="RAVA logo" />
-    <div class="loaderText">Loading RAVA…</div>
-  </div>
-</div>
-  
-<iframe
-  id="preloadFrame"
-  style="display:none; width:0; height:0; border:0;"
-></iframe>
-
-<script>
-  const btn = document.getElementById("continueBtn");
-  const loader = document.getElementById("loader");
-  const frame = document.getElementById("preloadFrame");
-
-  const target =
-    "https://rava-community.com/login?from_url=https%3A%2F%2Frava-community.com%2F";
-
-  btn.addEventListener("click", () => {
-    loader.style.display = "flex";
-
-    frame.onload = () => {
-      window.location.href = target;
-    };
-
-    frame.src = target;
-
-    setTimeout(() => {
-      window.location.href = target;
-    }, 20000);
-  });
-</script>
 </body>
 </html>
