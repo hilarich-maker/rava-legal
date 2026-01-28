@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RAVA</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <style>
+    :root { --brand:#BF1260; --cream:#F7F5F3; }
+    body{
+      margin:0; height:100vh; display:flex; align-items:center; justify-content:center;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 800px at 20% 10%, rgba(191,18,96,0.10), transparent 60%),
+                  radial-gradient(900px 700px at 80% 90%, rgba(191,18,96,0.08), transparent 55%),
+                  var(--cream);
+      color:#1b1b1b;
+    }
+    .card{
+      width:min(420px, 92vw);
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(10px);
+      border:1px solid rgba(191,18,96,0.15);
+      border-radius:20px;
+      padding:22px 20px;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.10);
+      text-align:center;
+    }
+    .logo{
+      width:64px; height:64px; border-radius:18px;
+      display:inline-flex; align-items:center; justify-content:center;
+      margin: 6px auto 14px;
+      background: rgba(191,18,96,0.10);
+      border: 1px solid rgba(191,18,96,0.25);
+      color: var(--brand);
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+    h1{ margin:0 0 8px; font-size:22px; }
+    p{ margin:0 0 16px; font-size:15px; line-height:1.4; opacity:0.85; }
+    .btn{
+      display:block; width:100%;
+      padding:13px 14px;
+      border-radius:14px;
+      border:0;
+      background: var(--brand);
+      color:white;
+      font-weight:700;
+      font-size:16px;
+      cursor:pointer;
+    }
+    .hint{ margin-top:12px; font-size:13px; opacity:0.75; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">RV</div>
+    <h1>Welcome to RAVA</h1>
+    <p>A calm space for real connection. Groups, chats, and meetups, without WhatsApp overload.</p>
+    <button class="btn" id="go">Continue</button>
+    <div class="hint">If it takes a moment, keep this page open while RAVA loads.</div>
+  </div>
+
+  <script>
+    const LOGIN_URL = "https://rava-community.com/login?from_url=https%3A%2F%2Frava-community.com%2F";
+    document.getElementById("go").addEventListener("click", () => {
+      window.location.href = LOGIN_URL;
+    });
+  </script>
+</body>
+</html>
