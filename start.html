@@ -11,10 +11,13 @@
       --bg: #F7F5F3;
       --text: #1f2937;
       --muted: #6b7280;
-      --card: #ffffff;
+      --card: rgba(255,255,255,0.70);
+      --border: rgba(17,24,39,0.08);
+      --shadow: 0 20px 60px rgba(0,0,0,0.08);
     }
 
     html, body { height: 100%; }
+
     body{
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
@@ -27,7 +30,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 24px;
+      padding: 22px;
     }
 
     .page{
@@ -36,45 +39,49 @@
     }
 
     .hero{
-      background: rgba(255,255,255,0.65);
-      border: 1px solid rgba(17,24,39,0.08);
-      border-radius: 24px;
-      padding: 28px 24px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      padding: 34px 28px;
       backdrop-filter: blur(10px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+      box-shadow: var(--shadow);
     }
 
-    .top{
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 16px;
+    /* New centered header */
+    .header{
+      text-align: center;
+      margin-bottom: 18px;
     }
 
-    .logo{
-      width: 56px;
-      height: 56px;
-      border-radius: 14px;
+    .logoWrap{
+      width: 92px;
+      height: 92px;
+      margin: 0 auto 14px;
+      border-radius: 22px;
       background: #fff;
-      border: 1px solid rgba(17,24,39,0.08);
+      border: 1px solid var(--border);
       display: grid;
       place-items: center;
       overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
     }
-    .logo img{
+
+    .logoWrap img{
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
     h1{
-      font-size: 28px;
+      font-size: 30px;
       line-height: 1.15;
       margin: 0;
+      color: #7f1246;
+      letter-spacing: -0.2px;
     }
 
     .tagline{
-      margin: 6px 0 0;
+      margin: 8px 0 0;
       color: var(--muted);
       font-size: 14px;
     }
@@ -82,28 +89,34 @@
     .copy{
       margin-top: 18px;
       font-size: 16px;
-      line-height: 1.6;
+      line-height: 1.65;
       color: var(--text);
     }
+
+    .copy p{ margin: 0 0 14px; }
 
     .bullets{
-      margin: 14px 0 0 18px;
+      margin: 10px auto 16px;
       padding: 0;
       color: var(--text);
+      max-width: 640px;
+      text-align: left;
+      list-style: disc;
+      padding-left: 22px;
     }
-    .bullets li{ margin: 6px 0; }
+    .bullets li{ margin: 7px 0; }
 
     .footerLine{
-      margin-top: 18px;
-      font-weight: 600;
+      margin: 16px 0 0;
+      font-weight: 700;
       color: var(--text);
+      text-align: center;
     }
 
     .actions{
       margin-top: 22px;
       display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .btn{
@@ -112,30 +125,38 @@
       cursor: pointer;
       padding: 14px 18px;
       border-radius: 14px;
-      font-weight: 700;
+      font-weight: 800;
       font-size: 16px;
       width: 100%;
-      max-width: 320px;
+      max-width: 360px;
       text-align: center;
       text-decoration: none;
       display: inline-block;
     }
 
     .btnPrimary{
-      background: var(--brand);
+      background: linear-gradient(135deg, #A3165B, #BF1260);
       color: #fff;
       box-shadow: 0 10px 25px rgba(191,18,96,0.25);
+    }
+    .btnPrimary:active{
+      transform: translateY(1px);
     }
 
     .hint{
       margin-top: 10px;
       color: var(--muted);
       font-size: 13px;
+      text-align: center;
     }
 
     @media (max-width: 520px){
-      h1{ font-size: 24px; }
+      .wrap{ padding: 16px; }
       .hero{ padding: 22px 18px; }
+      h1{ font-size: 24px; }
+      .logoWrap{ width: 80px; height: 80px; border-radius: 20px; }
+      .copy{ font-size: 15px; }
+      .bullets{ max-width: 100%; }
       .btn{ max-width: 100%; }
     }
   </style>
@@ -145,15 +166,16 @@
   <main class="wrap">
     <section class="page">
       <div class="hero">
-        <div class="top">
-          <div class="logo">
+
+        <header class="header">
+          <!-- Keep this filename exactly as your repo file -->
+          <div class="logoWrap">
             <img src="rava-logo.png" alt="RAVA logo" />
           </div>
-          <div>
-            <h1>Welcome to RAVA</h1>
-            <p class="tagline">Find your people. Feel at home.</p>
-          </div>
-        </div>
+
+          <h1>Welcome to RAVA</h1>
+          <p class="tagline">Find your people. Feel at home.</p>
+        </header>
 
         <div class="copy">
           <p><strong>RAVA</strong> is a vibrant community for single women seeking connection, belonging, and meaningful friendships.</p>
@@ -175,10 +197,13 @@
           <p class="footerLine">Find your people. Feel at home.</p>
 
           <div class="actions">
-            <a class="btn btnPrimary" href="/login">Continue</a>
+            <!-- If this page is on a subdomain (recommended), point to your real app login explicitly -->
+            <a class="btn btnPrimary" href="https://rava-community.com/login?from_url=https%3A%2F%2Frava-community.com%2F">Continue</a>
           </div>
+
           <div class="hint">If it takes a moment, keep this page open while RAVA loads.</div>
         </div>
+
       </div>
     </section>
   </main>
