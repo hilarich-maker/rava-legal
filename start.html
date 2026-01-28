@@ -246,16 +246,32 @@
     <div class="loaderText">Loading RAVA…</div>
   </div>
 </div>
+  
+<iframe
+  id="preloadFrame"
+  style="display:none; width:0; height:0; border:0;"
+></iframe>
 
 <script>
   const btn = document.getElementById("continueBtn");
   const loader = document.getElementById("loader");
+  const frame = document.getElementById("preloadFrame");
+
+  const target =
+    "https://rava-community.com/login?from_url=https%3A%2F%2Frava-community.com%2F";
 
   btn.addEventListener("click", () => {
     loader.style.display = "flex";
-    requestAnimationFrame(() => {
-      window.location.href = "https://rava-community.com/login?from_url=https%3A%2F%2Frava-community.com%2F";
-    });
+
+    frame.onload = () => {
+      window.location.href = target;
+    };
+
+    frame.src = target;
+
+    setTimeout(() => {
+      window.location.href = target;
+    }, 20000);
   });
 </script>
 </body>
