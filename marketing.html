@@ -61,14 +61,15 @@
       flex: 0 0 auto;
     }
 
-    .logoDot:after{
-      content:"";
-      position:absolute;
-      inset:10px 12px 10px 12px;
-      border-radius: 10px;
-      border: 2px solid rgba(255,255,255,0.9);
-      opacity: 0.95;
-    }
+    .brandLogo{
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;  /* תורידי אם את רוצה בלי עיגול */
+  object-fit: contain;  /* חשוב כדי לא לעוות לוגו */
+  box-shadow: 0 12px 24px rgba(194,24,91,0.25);
+  flex: 0 0 auto;
+}
+
 
     .brandText{
       display:flex;
@@ -147,11 +148,17 @@
     }
 
     .ctaRow{
-      display:flex;
-      gap:12px;
-      flex-wrap: wrap;
-      margin-top: 16px;
-    }
+  display:flex;
+  gap:12px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+/* Make store buttons equal width */
+.ctaRow .btn{
+  min-width: 260px;
+  justify-content: center;
+}
 
     .btn{
       display:inline-flex;
@@ -286,7 +293,7 @@
 
     <header class="topbar">
       <div class="brandMark">
-        <div class="logoDot" aria-hidden="true"></div>
+        <img class="brandLogo" src="assets/rava-logo.png" alt="RAVA logo" />
         <div class="brandText">
           <b>RAVA Community</b>
           <span>Find your people. Feel at home.</span>
