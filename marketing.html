@@ -150,14 +150,18 @@
     .ctaRow{
   display:flex;
   gap:12px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   margin-top: 16px;
 }
 
 /* Make store buttons equal width */
 .ctaRow .btn{
-  min-width: 260px;
+  flex: 1 1 0;
+  min-width: 0;
   justify-content: center;
+  white-space: nowrap;
+  font-size: 14px;
+  padding: 11px 12px;
 }
 
     .btn{
@@ -284,6 +288,7 @@
       h1{ font-size: 32px; }
       .grid{ grid-template-columns: 1fr; }
       .pillRow{ justify-content:flex-start; }
+      .ctaRow{ flex-wrap: wrap; }
     }
   </style>
 </head>
@@ -293,7 +298,7 @@
 
     <header class="topbar">
       <div class="brandMark">
-        <img class="brandLogo" src="assets/rava-logo.png" alt="RAVA logo" />
+        <img class="brandLogo" src="rava-logo.png" alt="RAVA logo" />
         <div class="brandText">
           <b>RAVA Community</b>
           <span>Find your people. Feel at home.</span>
