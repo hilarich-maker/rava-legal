@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>RAVA Launch</title>
+  <script>
+    // בדיקה אם קיים token של Base44
+    const token = localStorage.getItem("base44.auth.token");
+
+    if (token) {
+      // משתמש מחובר → כניסה לדשבורד
+      window.location.replace("https://rava-community.com/");
+    } else {
+      // לא מחובר → לוגין
+      window.location.replace("https://rava-community.com/login");
+    }
+  </script>
+</head>
+<body>
+  Redirecting...
+</body>
+</html>
