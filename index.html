@@ -1,413 +1,153 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="google-site-verification" content="KPpThGb_eTUXwFar3rYVsFPjs2gyjlv0t4vXY4plpW4" />
-  <title>RAVA Community | Find your people. Feel at home.</title>
-  <meta name="description" content="RAVA is a women-only community app for meaningful friendships, local events, and real connection." />
+  <title>RAVA</title>
+  <meta name="robots" content="noindex,nofollow" />
 
   <style>
     :root{
-      --bgTop:#F1EFEA;
-      --bgBottom:#FFFFFF;
+      --brand:#BF1260;
+      --bg1:#ffffff;
+      --bg2:#F7F5F3;
       --text:#1f2937;
       --muted:#6b7280;
-      --border:#e5e7eb;
-      --brand:#C2185B;
-      --brandSoft: rgba(194,24,91,0.10);
-      --max:980px;
-      --radius:20px;
-      --shadow: 0 10px 30px rgba(17,24,39,0.08);
-      --font: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      --card:rgba(255,255,255,0.72);
+      --border:rgba(17,24,39,0.08);
+      --shadow:0 20px 60px rgba(0,0,0,0.08);
     }
 
-    *{ box-sizing:border-box; }
+    html, body { height: 100%; }
+
     body{
       margin:0;
-      font-family:var(--font);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
       color:var(--text);
-      line-height:1.65;
-      background: linear-gradient(180deg, var(--bgTop), var(--bgBottom));
+      background: radial-gradient(1200px 700px at 50% 20%, var(--bg1) 0%, var(--bg2) 60%, #efe9ee 100%);
     }
 
     .wrap{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 64px 20px 72px;
-    }
-
-    .topbar{
+      min-height:100%;
       display:flex;
       align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      margin-bottom: 34px;
-    }
-
-    .brandMark{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      min-width: 0;
-    }
-
-    .logoDot{
-      width:42px;
-      height:42px;
-      border-radius: 14px;
-      background: var(--brand);
-      box-shadow: 0 12px 24px rgba(194,24,91,0.25);
-      position: relative;
-      flex: 0 0 auto;
-    }
-
-    .brandLogo{
-  width: 42px;
-  height: 42px;
-  border-radius: 14px;  /* תורידי אם את רוצה בלי עיגול */
-  object-fit: contain;  /* חשוב כדי לא לעוות לוגו */
-  box-shadow: 0 12px 24px rgba(194,24,91,0.25);
-  flex: 0 0 auto;
-}
-
-
-    .brandText{
-      display:flex;
-      flex-direction:column;
-      min-width:0;
-    }
-
-    .brandText b{
-      font-size: 14px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-
-    .brandText span{
-      font-size: 13px;
-      color: var(--muted);
-      margin-top: 2px;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-
-    .pillRow{
-      display:flex;
-      gap:10px;
-      flex-wrap: wrap;
-      justify-content:flex-end;
-    }
-
-    .pill{
-      font-size: 12px;
-      padding: 8px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.65);
-      color: var(--muted);
-      text-decoration:none;
-      transition: transform 0.12s ease, border-color 0.12s ease;
-    }
-    .pill:hover{
-      transform: translateY(-1px);
-      border-color: rgba(194,24,91,0.35);
-      color: var(--text);
-    }
-
-    .hero{
-      display:grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 20px;
-      align-items: stretch;
-      margin-bottom: 22px;
+      justify-content:center;
+      padding:18px;
     }
 
     .card{
-      background: rgba(255,255,255,0.70);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
+      width:min(520px, 100%);
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:26px 22px;
+      backdrop-filter: blur(10px);
       box-shadow: var(--shadow);
-      padding: 26px;
+      text-align:center;
+    }
+
+    .logo{
+      width:82px;
+      height:82px;
+      border-radius:18px;
+      background:#fff;
+      border:1px solid var(--border);
+      display:grid;
+      place-items:center;
+      margin:0 auto 14px;
+      overflow:hidden;
+      box-shadow:0 12px 30px rgba(0,0,0,0.08);
+    }
+    .logo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
     }
 
     h1{
-      margin: 0 0 10px 0;
-      font-size: 36px;
-      letter-spacing: -0.02em;
-      line-height: 1.15;
+      margin:0;
+      font-size:24px;
+      line-height:1.15;
+      color:#7f1246;
+      letter-spacing:-0.2px;
     }
 
-    .subtitle{
-      margin: 0 0 18px 0;
-      color: var(--muted);
-      font-size: 16px;
+    .tagline{
+      margin:8px 0 0;
+      color:var(--muted);
+      font-size:14px;
     }
 
-    .ctaRow{
-  display:flex;
-  gap:12px;
-  flex-wrap: nowrap;
-  margin-top: 16px;
-}
-
-/* Make store buttons equal width */
-.ctaRow .btn{
-  flex: 1 1 0;
-  min-width: 0;
-  justify-content: center;
-  white-space: nowrap;
-  font-size: 14px;
-  padding: 11px 12px;
-}
+    .spinner{
+      width:22px;
+      height:22px;
+      border-radius:50%;
+      border:2px solid rgba(191,18,96,0.18);
+      border-top-color: var(--brand);
+      margin:16px auto 14px;
+      animation: spin 0.9s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
 
     .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding: 12px 14px;
-      border-radius: 14px;
+      appearance:none;
+      border:0;
+      cursor:pointer;
+      padding:14px 18px;
+      border-radius:14px;
+      font-weight:800;
+      font-size:16px;
+      width:100%;
+      max-width:340px;
+      display:inline-block;
       text-decoration:none;
-      border: 1px solid var(--border);
-      background: #fff;
-      color: var(--text);
-      font-weight: 600;
-      transition: transform 0.12s ease, border-color 0.12s ease;
+      color:#fff;
+      background: linear-gradient(135deg, #A3165B, #BF1260);
+      box-shadow: 0 10px 25px rgba(191,18,96,0.25);
     }
-    .btn:hover{
-      transform: translateY(-1px);
-      border-color: rgba(194,24,91,0.35);
-    }
+    .btn:active{ transform: translateY(1px); }
 
-    .btnPrimary{
-      background: var(--brand);
-      border-color: var(--brand);
-      color: #fff;
-      box-shadow: 0 14px 26px rgba(194,24,91,0.25);
-    }
-    .btnPrimary:hover{
-      transform: translateY(-1px);
-      border-color: rgba(194,24,91,0.75);
-    }
-
-    .mini{
-      color: var(--muted);
-      font-size: 12.5px;
-      margin-top: 12px;
-    }
-
-    .spec{
-      display:flex;
-      flex-direction:column;
-      gap: 12px;
-    }
-    .specItem{
-      padding: 14px 14px;
-      border-radius: 16px;
-      background: rgba(194,24,91,0.06);
-      border: 1px solid rgba(194,24,91,0.14);
-    }
-    .specItem b{
-      display:block;
-      font-size: 13px;
-      margin-bottom: 4px;
-    }
-    .specItem span{
-      display:block;
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .sectionTitle{
-      margin: 26px 0 12px;
-      font-size: 16px;
-      letter-spacing: -0.01em;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-
-    .shot{
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.7);
-      overflow:hidden;
-      min-height: 180px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color: var(--muted);
-      font-size: 13px;
-      text-align:center;
-      padding: 16px;
-    }
-
-    .shot img{
-      width: 100%;
-      height: auto;
-      display:block;
-    }
-
-    .footer{
-      margin-top: 34px;
-      padding-top: 16px;
-      border-top: 1px solid var(--border);
-      display:flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items:center;
-      justify-content:space-between;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .links{
-      display:flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items:center;
-    }
-    .links a{
-      color: var(--muted);
-      text-decoration:none;
-    }
-    .links a:hover{
-      color: var(--brand);
-      text-decoration: underline;
-    }
-
-    @media (max-width: 900px){
-      .hero{ grid-template-columns: 1fr; }
-      h1{ font-size: 32px; }
-      .grid{ grid-template-columns: 1fr; }
-      .pillRow{ justify-content:flex-start; }
-      .ctaRow{ flex-wrap: wrap; }
+    .hint{
+      margin-top:10px;
+      color:var(--muted);
+      font-size:13px;
     }
   </style>
 </head>
 
 <body>
   <main class="wrap">
-
-    <header class="topbar">
-      <div class="brandMark">
-        <img class="brandLogo" src="rava-logo.png" alt="RAVA logo" />
-        <div class="brandText">
-          <b>RAVA Community</b>
-          <span>Find your people. Feel at home.</span>
-        </div>
+    <section class="card" aria-label="RAVA Launch">
+      <div class="logo">
+        <img src="rava-logo.png" alt="RAVA logo" />
       </div>
 
-      <nav class="pillRow" aria-label="Quick links">
-        <a class="pill" href="#screenshots">Screenshots</a>
-        <a class="pill" href="#safety">Safety</a>
-        <a class="pill" href="#contact">Contact</a>
-      </nav>
-    </header>
+      <h1>Welcome to RAVA</h1>
+      <p class="tagline">Find your people. Feel at home.</p>
 
-    <section class="hero">
-      <div class="card">
-        <h1>Meaningful friendships, local events, real connection.</h1>
-        <p class="subtitle">
-          RAVA is a women-only community app for single women who want belonging, support, and
-          genuine connections beyond the noise of traditional social platforms.
-        </p>
+      <div class="spinner" aria-hidden="true"></div>
 
-       <div class="ctaRow">
+      <a id="continueBtn" class="btn" href="https://rava-community.com/">
+        Continue
+      </a>
 
-  <a class="btn btnPrimary"
-     href="https://apps.apple.com/il/app/rava-app/id6758078442"
-     aria-label="Download on the App Store"
-     target="_blank"
-     rel="noopener">
-    Download on the App Store
-  </a>
-
-  <a class="btn"
-     href="https://play.google.com/store/apps/details?id=com.ravacommunity.app"
-     aria-label="Get it on Google Play"
-     target="_blank"
-     rel="noopener">
-    Get it on Google Play
-  </a>
-
-</div>
-
-
-        <div class="mini">
-          Built with safety, privacy, and emotional comfort in mind. Moderated community. 18+.
-        </div>
-      </div>
-
-      <aside class="card spec" id="safety">
-        <div class="specItem">
-          <b>Women-only, 18+</b>
-          <span>A respectful space designed for adult women.</span>
-        </div>
-        <div class="specItem">
-          <b>Moderated community</b>
-          <span>Encouraging kindness, respect, and authenticity.</span>
-        </div>
-        <div class="specItem">
-          <b>Local events</b>
-          <span>Discover meetups and activities near you.</span>
-        </div>
-      </aside>
+      <div class="hint">Opening the app…</div>
     </section>
-
-    <section class="card" id="screenshots">
-      <div class="sectionTitle">Screenshots</div>
-
-      <div class="grid">
-        <!-- Option A: Replace placeholders with images in /assets and uncomment <img> -->
-       <div class="shot">
-        <img src="home screenshot ios1.png" alt="RAVA Home screenshot" />
-       </div>
-
-        <div class="shot">
-         <img src="discovery screenshot ios.png" alt="RAVA Community screenshot" />
-        </div>
-
-        <div class="shot">
-         <img src="events screenshot ios1.png" alt="RAVA Events screenshot" />
-       </div>
-
-      </div>
-
-      <div class="mini" style="margin-top:14px;">
-    
-      </div>
-    </section>
-
-    <section class="card" id="contact" style="margin-top:14px;">
-      <div class="sectionTitle">Contact</div>
-      <p style="margin:0 0 10px 0;color:var(--muted);">
-        For support, safety reports, or account requests:
-      </p>
-      <p style="margin:0;">
-        <a class="btn" href="mailto:support@rava-community.com">support@rava-community.com</a>
-      </p>
-    </section>
-
-    <footer class="footer">
-      <div>© 2026 RAVA Community. All rights reserved.</div>
-      <div class="links">
-        <!-- Replace these URLs with your actual published pages -->
-        <div class="links">
-        <a href="https://hilarich-maker.github.io/rava-legal/privacy-policy.html" aria-label="Privacy Policy" target="_blank" rel="noopener">Privacy Policy</a>
-        <a href="https://hilarich-maker.github.io/rava-legal/terms.html" aria-label="Terms of Use" target="_blank" rel="noopener">Terms</a>
-        <a href="https://hilarich-maker.github.io/rava-legal/safety.html" aria-label="Child Safety & CSAE Policy" target="_blank" rel="noopener">Child Safety</a>
-      </div>
-    </footer>
-
   </main>
+
+  <script>
+    // Target is the main app URL (not /login) to avoid getting stuck on login when already authenticated.
+    const TARGET = "https://rava-community.com/";
+
+    // Make sure button always points to the same place
+    const btn = document.getElementById("continueBtn");
+    btn.setAttribute("href", TARGET);
+
+    // Auto-continue after a short moment
+    setTimeout(() => {
+      window.location.replace(TARGET);
+    }, 1200);
+  </script>
 </body>
 </html>
