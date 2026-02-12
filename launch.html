@@ -1,22 +1,81 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>RAVA Launch</title>
-  <script>
-    // בדיקה אם קיים token של Base44
-    const token = localStorage.getItem("base44.auth.token");
-
-    if (token) {
-      // משתמש מחובר → כניסה לדשבורד
-      window.location.replace("https://rava-community.com/");
-    } else {
-      // לא מחובר → לוגין
-      window.location.replace("https://rava-community.com/login");
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RAVA</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <style>
+    :root{
+      --brand:#BF1260;
+      --bg:#F7F5F3;
+      --text:#1f2937;
+      --muted:#6b7280;
     }
-  </script>
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      background: radial-gradient(1200px 700px at 50% 20%, #ffffff 0%, var(--bg) 55%, #efe9ee 100%);
+      color:var(--text);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
+    .card{
+      width:100%;
+      max-width:520px;
+      background: rgba(255,255,255,0.72);
+      border:1px solid rgba(17,24,39,0.08);
+      border-radius:20px;
+      padding:22px 18px;
+      text-align:center;
+      box-shadow:0 20px 60px rgba(0,0,0,0.08);
+      backdrop-filter: blur(10px);
+    }
+    .logo{
+      width:84px;height:84px;
+      margin:0 auto 12px;
+      border-radius:18px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid rgba(17,24,39,0.08);
+      display:grid;
+      place-items:center;
+    }
+    .logo img{width:100%;height:100%;object-fit:cover;}
+    h1{margin:0;font-size:18px;letter-spacing:-0.2px;}
+    p{margin:8px 0 0;color:var(--muted);font-size:13px;}
+    .spinner{
+      width:18px;height:18px;
+      border-radius:50%;
+      border:2px solid rgba(191,18,96,0.25);
+      border-top-color: var(--brand);
+      margin:14px auto 0;
+      animation:spin 0.8s linear infinite;
+    }
+    @keyframes spin{to{transform:rotate(360deg);}}
+  </style>
 </head>
 <body>
-  Redirecting...
+  <div class="card">
+    <div class="logo">
+      <!-- Optional: if you have a logo file in this repo, keep it. Otherwise delete the img -->
+      <img src="rava-logo.png" alt="RAVA" />
+    </div>
+    <h1>Opening RAVA…</h1>
+    <p>If you’re already logged in, you’ll go straight in.</p>
+    <div class="spinner"></div>
+  </div>
+
+  <script>
+    (function () {
+      // IMPORTANT: redirect to the dashboard root, NOT /login
+      // Base44 will redirect unauth users to /login automatically.
+      const target = "https://rava-community.com/?from_url=" + encodeURIComponent("https://rava-community.com/");
+      window.location.replace(target);
+    })();
+  </script>
 </body>
 </html>
